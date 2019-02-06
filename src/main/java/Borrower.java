@@ -27,8 +27,8 @@ public class Borrower {
     }
 
 
-    public void borrowBookFromLibrary(Library library) {
-        Book removedBook = library.removeBook();
-        this.books.add(removedBook);
+    public void borrowBookFromLibrary(Library library, String title) {
+        Book foundBook = library.findAndRemoveBook(title);
+        add(foundBook);
     }
 }

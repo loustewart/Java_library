@@ -45,7 +45,7 @@ public class BorrowerTest {
 
     @Test
     public void canBorrowFromLibrary() {
-        borrower.borrowBookFromLibrary(library);
+        borrower.borrowBookFromLibrary(library, "Spectacles");
         assertEquals(1, borrower.numberOfBooks());
         assertEquals(0, library.bookCount());
     }

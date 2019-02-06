@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
@@ -48,12 +50,30 @@ public class LibraryTest {
         assertEquals(5, library.bookCount());
 
     }
+    // refactor using isFull and !isFull
 
     @Test
     public void canRemoveBook() {
         library.add(book);
         library.removeBook();
         assertEquals(0, library.bookCount());
+    }
+
+    @Test
+    public void findAndRemoveBook() {
+        library.add(book);
+        Book foundBook = library.findAndRemoveBook("Spectacles");
+        assertEquals(book, foundBook);
+        assertEquals(0, library.bookCount());
+    }
+
+    @Test
+    public void canFindBooksByGenre() {
+        library.add(book);
+        library.add(book);
+        library.add(book);
+        ArrayList<Book> foundBooks = library.findByGenre("Biography");
+        assertEquals(3, foundBooks.size());
     }
 
 
